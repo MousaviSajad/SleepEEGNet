@@ -46,16 +46,30 @@ python prepare_physionet.py --data_dir data_2013 --output_dir data_2013/eeg_pz_o
 
 ## Train
 
-* Modify args settings in seq_seq_annot_aami.py for the each dataset.
+* Modify args settings in seq2seq_sleep_sleep-EDF.py for the each dataset.
 
-* For example, run below script to train SleepEEGNET model with the 20-fold cross-validation using Fpz-Cz channel of the Sleep_EDF (2013) dataset:
+* For example, run the below script to train SleepEEGNET model with the 20-fold cross-validation using Fpz-Cz channel of the Sleep_EDF (2013) dataset:
 ```
-python train.py --data_dir data_2013/eeg_fpz_cz --output_dir output_s2013 --n_folds 20
+python seq2seq_sleep_sleep-EDF.py --data_dir data_2013/eeg_fpz_cz --output_dir output_2013 --n_folds 20
 ```
 
 ## Results
-  ![Alt text](/images/results.jpg)
+* Run the below script to present the achieved results by SleepEEGNet model for Fpz-Cz channel.
+```
+python summary.py --data_dir output_2013/eeg_fpz_cz
+```
+
+![Alt text](/images/results.jpg)
+
+## Visualization
+* Run the below script to visualize attention maps of a sequence input (EEG epochs) for Fpz-Cz channel.
+```
+python visualize.py --data_dir output_2013/eeg_fpz_cz
+```
+
+
 ## Citation
+
 If you find it useful, please cite our paper as follows:
 
 ```
