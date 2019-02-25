@@ -723,7 +723,7 @@ def main(args=None):
     # outputs_eeg_fpz_cz
     tf.app.flags.DEFINE_string('data_dir', 'data_2013/eeg_fpz_cz',
                                """Directory where to load training data_2013.""")
-    tf.app.flags.DEFINE_string('output_dir', 'outputs_vis/outputs_eeg_fpz_cz',
+    tf.app.flags.DEFINE_string('output_dir', 'outputs_2013/outputs_eeg_fpz_cz',
                                """Directory where to save trained models """
                                """and outputs.""")
     tf.app.flags.DEFINE_integer('num_folds', 20,
