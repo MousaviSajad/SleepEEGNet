@@ -4,7 +4,7 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 # Paper
  Our paper can be downloaded from the [arxiv website](https://arxiv.org/pdf/1812.07421.pdf)
  * The Model architecture
-  ![Alt text](/images/seq2seq_sleep.jpg)
+  ![Alt text](/images/seq2seq_sleep.jpg)  
  * The CNN architecture
   ![Alt text](/images/seq2seq_cnn.jpg)
  
@@ -18,14 +18,14 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 * imblearn
 ## Dataset
 We evaluated our model using [the Physionet Sleep-EDF datasets](https://physionet.org/physiobank/database/sleep-edfx/) published in 2013 and 2018
-* To download SC subjects from the Sleep_EDF (2013) dataset use the below script:
+* To download SC subjects from the Sleep_EDF (2013) dataset, use the below script:
 ```
 cd data_2013
 chmod +x download_physionet.sh
 ./download_physionet.sh
 ```
 
-* To download SC subjects from the Sleep_EDF (2013) dataset use the below script:
+* To download SC subjects from the Sleep_EDF (2013) dataset, use the below script:
 ```
 cd data_2018
 chmod +x download_physionet.sh
