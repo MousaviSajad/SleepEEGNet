@@ -2,7 +2,7 @@
 In this study, we introduced a novel deep learning approach, called SleepEEGNet, for automated sleep stage scoring using a single-channel EEG.
 
 # Paper
- Our paper can be downloaded from the [arxiv website](https://arxiv.org/pdf/1812.07421.pdf)
+ Our paper can be downloaded from the [arxiv website](https://arxiv.org/pdf/1812.07421.pdf).
  * The Model architecture
   ![Alt text](/images/seq2seq_sleep.jpg)  
   
@@ -77,7 +77,7 @@ If you find it useful, please cite our paper as follows:
   title={SleepEEGNet: Automated Sleep Stage Scoring with Sequence to Sequence Deep Learning Approach},
   author={Sajad Mousavi, Fatemeh Afghah and U. Rajendra Acharya},
   journal={arXiv preprint arXiv:1812.07421},
-  year={2018}
+  year={2019}
 }
 ```
 
