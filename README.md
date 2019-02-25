@@ -19,9 +19,11 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 * matplotlib
 * imblearn
 ## Dataset and Data Preparation
-We evaluated our model using [the Physionet Sleep-EDF datasets](https://physionet.org/physiobank/database/sleep-edfx/) published in 2013 and 2018.
-* To download SC subjects from the Sleep_EDF (2013) dataset, use the below script:
+We evaluated our model using [the Physionet Sleep-EDF datasets](https://physionet.org/physiobank/database/sleep-edfx/) published in 2013 and 2018.  
 We have used the source code provided by [github:akaraspt](https://github.com/akaraspt/deepsleepnet) to prepare the dataset.
+
+* To download SC subjects from the Sleep_EDF (2013) dataset, use the below script:
+
 ```
 cd data_2013
 chmod +x download_physionet.sh
@@ -35,7 +37,7 @@ chmod +x download_physionet.sh
 ./download_physionet.sh
 ```
 
-Below scripts extracted sleep stages from the specific EEG channels of the Sleep_EDF (2013) dataset:
+Use below scripts to extract sleep stages from the specific EEG channels of the Sleep_EDF (2013) dataset:
 
 ```
 python prepare_physionet.py --data_dir data_2013 --output_dir data_2013/eeg_fpz_cz --select_ch 'EEG Fpz-Cz'
@@ -44,17 +46,13 @@ python prepare_physionet.py --data_dir data_2013 --output_dir data_2013/eeg_pz_o
 
 ## Train
 
-* Modify args settings in seq_seq_annot_aami.py for the intra-patient ECG heartbeat classification
-* Modify args settings in seq_seq_annot_DS1DS2.py for the inter-patient ECG heartbeat classification
+* Modify args settings in seq_seq_annot_aami.py for the each dataset.
 
-* Run each file to reproduce the model described in the paper, use:
+* For example, run below script to train SleepEEGNET model with the 20-fold cross-validation using Fpz-Cz channel of the Sleep_EDF (2013) dataset:
+```
+python train.py --data_dir data_2013/eeg_fpz_cz --output_dir output_s2013 --n_folds 20
+```
 
-```
-python seq_seq_annot_aami.py --data_dir data/s2s_mitbih_aami --epochs 500
-```
-```
-python seq_seq_annot_DS1DS2.py --data_dir data/s2s_mitbih_aami_DS1DS2 --epochs 500
-```
 ## Results
   ![Alt text](/images/results.jpg)
 ## Citation
