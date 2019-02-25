@@ -17,8 +17,20 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 * matplotlib
 * imblearn
 ## Dataset
-We evaluated our model using [the PhysioNet MIT-BIH Arrhythmia database](https://www.physionet.org/physiobank/database/mitdb/)
-* To download our pre-processed datasets use [this link](https://drive.google.com/drive/folders/1TGg1413qa5TkcC0zF6CUDhKWlNzJgPCJ?usp=sharing), then put them into the "data folder".
+We evaluated our model using [the Physionet Sleep-EDF datasets](https://physionet.org/physiobank/database/sleep-edfx/) published in 2013 and 2018
+* To download SC subjects from the Sleep_EDF (2013) dataset use the below script:
+```
+cd data_2013
+chmod +x download_physionet.sh
+./download_physionet.sh
+```
+
+* To download SC subjects from the Sleep_EDF (2013) dataset use the below script:
+```
+cd data_2018
+chmod +x download_physionet.sh
+./download_physionet.sh
+```
 
 ## Train
 
@@ -39,9 +51,9 @@ python seq_seq_annot_DS1DS2.py --data_dir data/s2s_mitbih_aami_DS1DS2 --epochs 5
 If you find it useful, please cite our paper as follows:
 
 ```
-@article{mousavi2018inter,
-  title={Inter-and intra-patient ECG heartbeat classification for arrhythmia detection: a sequence to sequence deep learning approach},
-  author={Mousavi, Sajad and Afghah, Fatemeh},
+@article{mousavi2019sleepEEGnet,
+  title={SleepEEGNet: Automated Sleep Stage Scoring with Sequence to Sequence Deep Learning Approach},
+  author={Sajad Mousavi, Fatemeh Afghah and U. Rajendra Acharya},
   journal={arXiv preprint arXiv:1812.07421},
   year={2018}
 }
