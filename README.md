@@ -3,8 +3,9 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 
 # Paper
  Our paper can be downloaded from the [arxiv website](https://arxiv.org/pdf/1812.07421.pdf)
- * The Network architecture
+ * The Model architecture
   ![Alt text](/images/seq2seq_sleep.jpg)
+ * The CNN architecture
   ![Alt text](/images/seq2seq_cnn.jpg)
  
 ## Recruitments
