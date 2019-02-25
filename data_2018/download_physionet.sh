@@ -1,1 +1,3 @@
-wget https://www.physionet.org/physiobank/database/sleep-edfx/sleep-cassette/SC4001E0-PSG.edf
+
+ # this command downloads the whole dataset; 
+wget -nd -r -A edf,hyp https://physionet.org/physiobank/database/sleep-edfx/sleep-cassette/
