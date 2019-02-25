@@ -1,8 +1,3 @@
-'''
-https://github.com/akaraspt/deepsleepnet
-Copyright 2017 Akara Supratak and Hao Dong.  All rights reserved.
-'''
-
 #! /usr/bin/python
 # -*- coding: utf8 -*-
 
@@ -102,7 +97,7 @@ def visualize(data_dir):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_dir", type=str, default="outputs_vis/outputs_eeg_fpz_cz",
+    parser.add_argument("--data_dir", type=str, default="outputs_2013/outputs_eeg_fpz_cz",
                         help="Directory where to load prediction outputs")
     args = parser.parse_args()
 
