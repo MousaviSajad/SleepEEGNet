@@ -2,7 +2,7 @@
 In this study, we introduced a novel deep learning approach, called SleepEEGNet, for automated sleep stage scoring using a single-channel EEG.
 
 # Paper
- Our paper can be downloaded from the [arxiv website](https://drive.google.com/file/d/1_FTnY9OF6dljT3IRjxKCiRi5He_WXl_x/view?usp=sharing).
+ Our paper can be downloaded from the [arxiv website](https://drive.google.com/file/d/1eJe-8FuiiwSPOM3jpudwrDqms9p6Uqja/view?usp=sharing).
  * The Model architecture
   ![Alt text](/images/seq2seq_sleep.jpg)  
   
