@@ -2,7 +2,7 @@
 In this study, we introduced a novel deep learning approach, called SleepEEGNet, for automated sleep stage scoring using a single-channel EEG.
 
 # Paper
- Our paper can be downloaded from the [arxiv website](https://arxiv.org/pdf/1812.07421.pdf).
+ Our paper can be downloaded from the [arxiv website](https://drive.google.com/file/d/1_FTnY9OF6dljT3IRjxKCiRi5He_WXl_x/view?usp=sharing).
  * The Model architecture
   ![Alt text](/images/seq2seq_sleep.jpg)  
   
@@ -46,7 +46,7 @@ python prepare_physionet.py --data_dir data_2013 --output_dir data_2013/eeg_pz_o
 
 ## Train
 
-* Modify args settings in seq2seq_sleep_sleep-EDF.py for the each dataset.
+* Modify args settings in seq2seq_sleep_sleep-EDF.py for each dataset.
 
 * For example, run the below script to train SleepEEGNET model with the 20-fold cross-validation using Fpz-Cz channel of the Sleep_EDF (2013) dataset:
 ```
