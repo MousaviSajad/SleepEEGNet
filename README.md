@@ -76,7 +76,7 @@ If you find it useful, please cite our paper as follows:
 @article{mousavi2019sleepEEGnet,
   title={SleepEEGNet: Automated Sleep Stage Scoring with Sequence to Sequence Deep Learning Approach},
   author={Sajad Mousavi, Fatemeh Afghah and U. Rajendra Acharya},
-  journal={arXiv preprint arXiv:1812.07421},
+  journal={arXiv preprint arXiv:1903.02108},
   year={2019}
 }
 ```
