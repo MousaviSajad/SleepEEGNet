@@ -15,9 +15,12 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 * tensorflow/tensorflow-gpu
 * numpy
 * scipy
+* matplotlib
 * scikit-learn
 * matplotlib
 * imblearn
+* pandas
+* mne
 ## Dataset and Data Preparation
 We evaluated our model using [the Physionet Sleep-EDF datasets](https://physionet.org/physiobank/database/sleep-edfx/) published in 2013 and 2018.  
 We have used the source code provided by [github:akaraspt](https://github.com/akaraspt/deepsleepnet) to prepare the dataset.
