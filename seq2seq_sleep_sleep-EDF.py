@@ -154,7 +154,7 @@ def build_network(hparams,char2numY,inputs,dec_inputs,keep_prob_=0.5,):
         _inputs = tf.reshape(inputs, [-1, hparams.input_depth,1])
         network = build_firstPart_model(_inputs, keep_prob_)
         shape = network.get_shape().as_list()
-        date_input_embed = tf.reshape(network, (-1, hparams.max_time_step, shape[1]))
+        data_input_embed = tf.reshape(network, (-1, hparams.max_time_step, shape[1]))
     else:
         _inputs = tf.reshape(inputs, [-1, hparams.n_channels, hparams.input_depth / hparams.n_channels])
 
@@ -171,17 +171,17 @@ def build_network(hparams,char2numY,inputs,dec_inputs,keep_prob_=0.5,):
         max_pool_3 = tf.layers.max_pooling1d(inputs=conv3, pool_size=2, strides=2, padding='same')
 
         shape = max_pool_3.get_shape().as_list()
-        date_input_embed = tf.reshape(max_pool_3, (-1, hparams.max_time_step, shape[1] * shape[2]))
+        data_input_embed = tf.reshape(max_pool_3, (-1, hparams.max_time_step, shape[1] * shape[2]))
 
     # timesteps = max_time
-    # lstm_in = tf.unstack(date_input_embed, timesteps, 1)
+    # lstm_in = tf.unstack(data_input_embed, timesteps, 1)
     # lstm_size = 128
     # # Get lstm cell output
     # # Add LSTM layers
     # lstm_cell = tf.contrib.rnn.BasicLSTMCell(lstm_size)
-    # date_input_embed, states = tf.contrib.rnn.static_rnn(lstm_cell, lstm_in, dtype=tf.float32)
-    # date_input_embed = tf.stack(date_input_embed, 1)
-    # shape = date_input_embed.get_shape().as_list()
+    # data_input_embed, states = tf.contrib.rnn.static_rnn(lstm_cell, lstm_in, dtype=tf.float32)
+    # data_input_embed = tf.stack(data_input_embed, 1)
+    # shape = data_input_embed.get_shape().as_list()
     # embed_size = 10 #128 lstm_size # shape[1]*shape[2]
 
     # Embedding layers
@@ -200,7 +200,7 @@ def build_network(hparams,char2numY,inputs,dec_inputs,keep_prob_=0.5,):
                 lstm = tf.contrib.rnn.LSTMCell(hparams.num_units)
                 return lstm
             encoder_cell = tf.contrib.rnn.MultiRNNCell([lstm_cell() for _ in range(hparams.lstm_layers)])
-            encoder_outputs, encoder_state = tf.nn.dynamic_rnn(encoder_cell, inputs=date_input_embed, dtype=tf.float32)
+            encoder_outputs, encoder_state = tf.nn.dynamic_rnn(encoder_cell, inputs=data_input_embed, dtype=tf.float32)
 
         else:
 
@@ -219,7 +219,7 @@ def build_network(hparams,char2numY,inputs,dec_inputs,keep_prob_=0.5,):
             ((enc_fw_out, enc_bw_out), (enc_fw_final, enc_bw_final)) = tf.nn.bidirectional_dynamic_rnn(
                 cell_fw=stacked_cell_fw,
                 cell_bw=stacked_cell_bw,
-                inputs=date_input_embed,
+                inputs=data_input_embed,
                 dtype=tf.float32)
             encoder_final_state = []
             for layer in range(hparams.lstm_layers):
@@ -401,13 +401,13 @@ def build_whole_model(hparams,char2numY,inputs, targets,dec_inputs, keep_prob_):
         for i in range(logits.get_shape().as_list()[-1]):
             class_fill_targets = tf.fill(tf.shape(targets), i)
             weights_i = tf.cast(tf.equal(targets, class_fill_targets), "float")
-            loss_is.append(tf.contrib.seq2seq.sequence_loss(logits, targets, weights_i))
+            loss_is.append(tf.contrib.seq2seq.sequence_loss(logits, targets, weights_i,average_across_batch=False))
 
-        loss = tf.reduce_sum(loss_is)
+        loss = tf.reduce_sum(loss_is,axis=0)
 
         # loss = tf.contrib.seq2seq.sequence_loss(logits, targets, tf.ones([hparams.batch_size, hparams.max_time_step+1])) #+1 is because of the <EOD> token
         # Optimizer
-        loss = tf.reduce_mean(loss + lossL2)
+        loss = tf.reduce_mean(loss)+lossL2
         optimizer = tf.train.RMSPropOptimizer(1e-3).minimize(loss)
 
     return logits, pred_outputs, loss, optimizer,dec_states
