@@ -18,7 +18,7 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
 * matplotlib
 * scikit-learn
 * matplotlib
-* imblearn
+* imbalanced-learn(0.4.3)
 * pandas
 * mne
 ## Dataset and Data Preparation
