@@ -53,7 +53,7 @@ python prepare_physionet.py --data_dir data_2013 --output_dir data_2013/eeg_pz_o
 
 * For example, run the below script to train SleepEEGNET model with the 20-fold cross-validation using Fpz-Cz channel of the Sleep_EDF (2013) dataset:
 ```
-python seq2seq_sleep_sleep-EDF.py --data_dir data_2013/eeg_fpz_cz --output_dir output_2013 --n_folds 20
+python seq2seq_sleep_sleep-EDF.py --data_dir data_2013/eeg_fpz_cz --output_dir output_2013 --num_folds 20
 ```
 
 ## Results
