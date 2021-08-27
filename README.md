@@ -10,7 +10,7 @@ In this study, we introduced a novel deep learning approach, called SleepEEGNet,
  
   ![Alt text](/images/seq2seq_cnn.jpg)
  
-## Recruitments
+## Requirements
 * Python 2.7
 * tensorflow/tensorflow-gpu
 * numpy
